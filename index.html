@@ -141,6 +141,21 @@ ul.check li::before{content:"";position:absolute;left:0;top:.35em;width:16px;hei
 @media (max-width:440px){.prices{grid-template-columns:1fr}}
 .offer{margin-top:24px;border-left:4px solid var(--signal);background:var(--card);padding:16px 20px;border-radius:0 8px 8px 0}
 
+/* comparatif */
+.cmp-wrap{overflow-x:auto;margin-top:28px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.cmp{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font-family:var(--display);font-size:1.02rem;color:var(--muted);font-weight:700}
+.cmp tbody th{font-weight:700;width:22%;color:var(--ink)}
+.cmp td{color:var(--muted)}
+.cmp .me{background:color-mix(in srgb,var(--navy) 8%,transparent);color:var(--ink)}
+.cmp thead .me{color:var(--navy)}
+.relect{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px}
+.relect .amount{font-family:var(--display);font-size:var(--step-2);font-weight:800;color:var(--navy)}
+.relect p{min-width:0;flex:1 1 320px}
+.guarantee{margin-top:16px;display:flex;gap:12px;align-items:flex-start}
+.guarantee strong{color:var(--ink)}
 /* FAQ */
 details{border-bottom:1px solid var(--line);padding-block:16px}
 summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
@@ -189,7 +204,7 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
         <a class="btn btn-main" href="#contact">Demander un devis gratuit</a>
         <a class="btn btn-ghost" href="#exemple">Voir un exemple</a>
       </div>
-      <div class="reassure"><span>100 % à distance</span><span>Livré sous 7 jours</span><span>Réponse sous 24 h</span></div>
+      <div class="reassure"><span>100 % à distance</span><span>Livré sous 7 jours</span><span>Réponse sous 24 h</span><span>Corrections jusqu'à validation</span></div>
     </div>
     <figure class="matrix" aria-label="Extrait d'évaluation : chaque risque est noté en gravité et en fréquence">
       <div class="grid">
@@ -273,6 +288,26 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
   </div>
 </section>
 
+<section id="comparatif" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Comparer</p>
+    <h2>Trois façons de faire son DUERP.</h2>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"></th><th scope="col">Générateur en ligne</th><th scope="col" class="me">DUERP Conseil</th><th scope="col">Cabinet de conseil</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Qui évalue les risques ?</th><td>Vous, seul, en cochant une liste de risques types</td><td class="me">Moi, avec vous, à partir de vos réponses et d'un entretien</td><td>Un consultant</td></tr>
+          <tr><th scope="row">Vos situations réelles</th><td>Si vous pensez à les ajouter</td><td class="me">Recherchées pendant l'entretien : horaires, travail seul, incidents passés…</td><td>Oui</td></tr>
+          <tr><th scope="row">Votre temps</th><td>10 minutes à quelques heures</td><td class="me">Environ 20 min de questionnaire et 30 min d'entretien</td><td>Plusieurs rendez-vous</td></tr>
+          <tr><th scope="row">Délai</th><td>Immédiat</td><td class="me">7 jours</td><td>2 à 4 semaines</td></tr>
+          <tr><th scope="row">Prix</th><td>50 à 150 €</td><td class="me">249 à 399 €</td><td>300 à 1 500 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:12px">Fourchettes de prix constatées sur des offres publiques en 2026.</p>
+  </div>
+</section>
+
 <section style="padding-top:0">
   <div class="wrap bio">
     <div class="mono" aria-hidden="true">M</div>
@@ -296,6 +331,8 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
       <div class="price"><span class="amount">399 €</span><span class="who">11 à 20 salariés</span><span class="what">Création du DUERP</span></div>
       <div class="price update"><span class="amount">99 €</span><span class="who">Mise à jour</span><span class="what">Après un changement : nouveau poste, travaux, accident</span></div>
     </div>
+    <div class="relect"><p><strong>Vous avez déjà un DUERP</strong>, fait en ligne ou à partir d'un modèle ? Je le relis, je vous signale ce qui manque et je le complète.</p><span class="amount">99 €</span></div>
+    <p class="guarantee"><span><strong>Corrections jusqu'à votre validation.</strong> Si quelque chose ne correspond pas à votre entreprise, je corrige, autant de fois que nécessaire, sans frais.</span></p>
     <div class="offer"><strong>Offre de lancement : -50 % pour les 3 premiers clients</strong>, en échange d'un témoignage écrit sur votre expérience.</div>
     <p class="small" style="margin-top:14px">Prix nets. TVA non applicable, art. 293 B du CGI.</p>
   </div>
@@ -310,6 +347,8 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
       <details><summary>Qui est responsable du document ?</summary><p>L'employeur reste responsable de l'évaluation des risques. Je la rédige avec vous, à partir de vos réponses, et vous la validez avant de la signer.</p></details>
       <details><summary>À quelle fréquence faut-il le mettre à jour ?</summary><p>À chaque changement important (nouveau poste, travaux, nouvel équipement) et après un accident. Au-delà de 11 salariés, la mise à jour est aussi obligatoire chaque année.</p></details>
       <details><summary>Mes informations restent-elles confidentielles ?</summary><p>Oui. Vos réponses servent uniquement à rédiger votre DUERP. Elles ne sont ni revendues ni partagées.</p></details>
+      <details><summary>Quelle différence avec un DUERP généré en ligne ?</summary><p>Un générateur vous propose une liste de risques types pour votre métier, et c'est vous qui faites l'évaluation. Ici, je mène l'évaluation avec vous : je pose les questions qu'on ne pense pas à se poser (travail seul, argent liquide, horaires, incidents passés) et je rédige un plan d'action adapté. Si vous avez déjà un DUERP fait en ligne, je peux aussi le relire et le compléter pour 99 €.</p></details>
+      <details><summary>Et si le document ne me convient pas ?</summary><p>Vous le relisez avant de le signer. S'il y a une erreur ou un oubli, je corrige, autant de fois que nécessaire, sans frais.</p></details>
       <details><summary>Comment se passe le paiement ?</summary><p>Vous recevez un devis. Une fois signé, on lance le questionnaire. La facture est envoyée à la livraison du DUERP, payable par virement.</p></details>
     </div>
   </div>
