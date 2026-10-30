@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1' y='1' width='12' height='12' rx='2' fill='%23d9efe0'/%3E%3Crect x='15' y='1' width='12' height='12' rx='2' fill='%23fbd6b4'/%3E%3Crect x='1' y='15' width='12' height='12' rx='2' fill='%23fbeec3'/%3E%3Crect x='15' y='15' width='12' height='12' rx='2' fill='%231e3a5f'/%3E%3C/svg%3E">
+<meta property="og:title" content="DUERP Conseil · Document unique sur mesure pour les TPE">
+<meta property="og:description" content="Votre DUERP conçu pour votre entreprise, 100 % à distance. Devis gratuit sous 24 h.">
+<link rel="canonical" href="https://duerp-conseil.fr/">
+<title>DUERP Conseil</title>
+<meta name="description" content="DUERP Conseil rédige le Document Unique d'évaluation des risques des TPE de 1 à 20 salariés, sur mesure et 100 % à distance. Devis gratuit sous 24 h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: une seule colonne éditoriale, bandes pleine largeur, matrice gravité × fréquence comme signature visuelle */
+:root{
+  --navy:#1e3a5f;      /* marque */
+  --ink:#16202c;       /* texte */
+  --muted:#5a6878;     /* texte secondaire */
+  --paper:#f7f8fa;     /* fond, gris bleuté */
+  --card:#ffffff;
+  --line:#dde3ea;
+  --signal:#e8a317;    /* jaune balisage */
+  --on-navy:#f2f5f9;
+  --r1:#d9efe0; --r2:#fbeec3; --r3:#fbd6b4; --r4:#f6c0bb;  /* niveaux de risque */
+  --r-ink:#1c2733;
+  --display:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;
+  --body:'Public Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --step-0:1rem; --step-1:1.2rem; --step-2:1.6rem; --step-3:2.2rem; --step-4:clamp(2.2rem,5.5vw,3.6rem);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --navy:#9cc0ea; --ink:#e6ebf1; --muted:#a3b0bf; --paper:#0f1722; --card:#172232; --line:#2a3a4f;
+  --signal:#f0b53a; --on-navy:#0f1722;
+  --r1:#24463a; --r2:#4d4320; --r3:#56391f; --r4:#5a2a2a; --r-ink:#eef2f6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#9cc0ea; --ink:#e6ebf1; --muted:#a3b0bf; --paper:#0f1722; --card:#172232; --line:#2a3a4f;
+  --signal:#f0b53a; --on-navy:#0f1722;
+  --r1:#24463a; --r2:#4d4320; --r3:#56391f; --r4:#5a2a2a; --r-ink:#eef2f6; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:var(--step-3);font-weight:800}
+h3{font-size:var(--step-1);font-weight:700}
+p{margin:0}
+.lead{font-size:var(--step-1);color:var(--muted);max-width:60ch}
+.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--muted)}
+section{padding-block:72px}
+.stack{display:flex;flex-direction:column;gap:20px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+
+/* barre du haut */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--navy)}
+.logo svg{flex:none}
+nav{display:flex;align-items:center;gap:22px;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:6px;font-weight:700;text-decoration:none;border:2px solid var(--navy);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-main{background:var(--navy);color:var(--on-navy)}
+.btn-ghost{color:var(--navy)}
+nav .btn{padding:8px 14px}
+@media (max-width:760px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-block:64px 56px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:var(--step-4);font-weight:800;color:var(--navy)}
+.hero .stack{gap:24px;min-width:0}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.reassure{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.92rem;color:var(--muted)}
+.reassure span::before{content:"✓ ";color:var(--navy);font-weight:700}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* matrice */
+.matrix{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;min-width:0}
+.matrix figcaption{font-size:.85rem;color:var(--muted);margin-top:12px}
+.grid{display:grid;grid-template-columns:28px repeat(4,1fr);grid-template-rows:repeat(4,64px) 26px;gap:4px;font-size:.72rem}
+.cell{border-radius:4px;padding:5px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;justify-content:flex-end;color:var(--r-ink)}
+.l1{background:var(--r1)}.l2{background:var(--r2)}.l3{background:var(--r3)}.l4{background:var(--r4)}
+.tag{font-size:.68rem;hyphens:auto;background:var(--card);color:var(--ink);border-radius:3px;padding:1px 5px;line-height:1.3;font-weight:700;box-shadow:0 1px 0 var(--line)}
+.ax{display:flex;align-items:center;justify-content:center;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:700}
+.ylab{writing-mode:vertical-rl;transform:rotate(180deg)}
+.axes{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-top:6px;padding-left:32px}
+
+/* bande obligation */
+.band{background:var(--navy);color:var(--on-navy)}
+.band h2{color:var(--on-navy)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px}
+.fact strong{display:block;font-family:var(--display);font-size:var(--step-3);font-weight:800;color:var(--signal);line-height:1.1}
+.fact span{opacity:.85}
+.risks{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;padding-top:32px;border-top:1px solid color-mix(in srgb,var(--on-navy) 25%,transparent)}
+.risks p{opacity:.9;font-size:.97rem}
+.risks h3{color:var(--on-navy);margin-bottom:6px}
+.sources{margin-top:28px;font-size:.78rem;opacity:.7}
+@media (max-width:760px){.facts,.risks{grid-template-columns:1fr}}
+
+/* étapes */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;counter-reset:s}
+.step{border-top:3px solid var(--navy);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.step::before{counter-increment:s;content:"Étape " counter(s);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--muted)}
+.step p{color:var(--muted)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* livrable */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.two>*{min-width:0}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+ul.check{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+ul.check li{padding-left:30px;position:relative}
+ul.check li::before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border-radius:3px;background:var(--navy);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='black' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='black' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/100% no-repeat}
+.sample{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.sample .doc{border:1px solid var(--line);border-radius:6px;padding:16px 18px;font-size:.85rem;display:flex;flex-direction:column;gap:6px;background:var(--paper)}
+.sample .doc b{font-family:var(--display);color:var(--navy);font-size:1rem}
+.small{font-size:.85rem;color:var(--muted)}
+
+/* bio */
+.bio{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start}
+.bio>div{min-width:0}
+.mono{width:96px;height:96px;border-radius:50%;background:var(--navy);color:var(--on-navy);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:2.2rem}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.creds span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 12px;font-size:.85rem}
+@media (max-width:600px){.bio{grid-template-columns:1fr}}
+
+/* tarifs */
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.price .amount{font-family:var(--display);font-size:var(--step-3);font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.price .who{font-weight:700}
+.price .what{font-size:.9rem;color:var(--muted)}
+.price.update{background:transparent;border-style:dashed}
+@media (max-width:860px){.prices{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.prices{grid-template-columns:1fr}}
+.offer{margin-top:24px;border-left:4px solid var(--signal);background:var(--card);padding:16px 20px;border-radius:0 8px 8px 0}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding-block:16px}
+summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:var(--display);font-size:1.4rem;line-height:1;color:var(--navy)}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--muted);max-width:70ch}
+
+/* contact */
+.contact{background:var(--card);border-top:1px solid var(--line)}
+.mail{font-family:var(--display);font-size:clamp(1.3rem,4vw,2rem);font-weight:700;color:var(--navy);word-break:break-all;user-select:all}
+/* formulaire */
+.formbox{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px;min-width:0}
+.formbox iframe{display:block;border:0;width:100%;min-height:600px;background:#fff;border-radius:6px}
+footer{padding-block:32px;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="12" height="12" rx="2" fill="var(--r1)"/><rect x="15" y="1" width="12" height="12" rx="2" fill="var(--r3)"/><rect x="1" y="15" width="12" height="12" rx="2" fill="var(--r2)"/><rect x="15" y="15" width="12" height="12" rx="2" fill="var(--navy)"/></svg>
+      DUERP Conseil
+    </a>
+    <nav>
+      <a href="#methode">Méthode</a>
+      <a href="#exemple">Exemple</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn-main" href="#contact">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="stack">
+      <p class="eyebrow">Document unique pour les TPE de 1 à 20 salariés</p>
+      <h1>Un Document Unique conçu pour votre entreprise.</h1>
+      <p class="lead">J'étudie vos postes, vos locaux et votre façon de travailler, puis je rédige un DUERP qui vous ressemble et qui vous sert vraiment. Le tout à distance, sans bloquer votre activité.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#contact">Demander un devis gratuit</a>
+        <a class="btn btn-ghost" href="#exemple">Voir un exemple</a>
+      </div>
+      <div class="reassure"><span>100 % à distance</span><span>Livré sous 7 jours</span><span>Réponse sous 24 h</span></div>
+    </div>
+    <figure class="matrix" aria-label="Extrait d'évaluation : chaque risque est noté en gravité et en fréquence">
+      <div class="grid">
+        <div class="ax ylab">Gravité 4</div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"><span class="tag">Accident en leçon de conduite</span></div><div class="cell l4"></div>
+        <div class="ax ylab">3</div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"><span class="tag">Fatigue au volant</span></div><div class="cell l4"><span class="tag">Seule avec la caisse</span></div>
+        <div class="ax ylab">2</div><div class="cell l1"></div><div class="cell l2"><span class="tag">Chute dans l'escalier</span></div><div class="cell l2"><span class="tag">Agressivité verbale</span></div><div class="cell l3"></div>
+        <div class="ax ylab">1</div><div class="cell l1"></div><div class="cell l1"></div><div class="cell l1"><span class="tag">Écran</span></div><div class="cell l2"></div>
+        <div></div><div class="ax">1</div><div class="ax">2</div><div class="ax">3</div><div class="ax">Fréq. 4</div>
+      </div>
+      <figcaption>Extrait d'un DUERP d'auto-école (exemple fictif). Chaque risque est placé selon sa gravité et sa fréquence, ce qui fixe l'ordre des actions.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Le DUERP est obligatoire dès le premier salarié.</h2>
+    <div class="facts">
+      <div class="fact"><strong>1 salarié</strong><span>suffit, apprenti compris, quel que soit le métier.</span></div>
+      <div class="fact"><strong>6 sur 10</strong><span>des entreprises de 1 à 10 salariés n'ont pas de DUERP à jour <sup>(1)</sup>.</span></div>
+      <div class="fact"><strong>40 ans</strong><span>c'est la durée pendant laquelle chaque version doit être conservée.</span></div>
+    </div>
+    <div class="risks">
+      <div><h3>Jusqu'à 4 000 € par salarié</h3><p>Depuis le 27 juin 2026, l'administration peut infliger cette amende directement, sur rapport de l'inspection du travail. Elle est doublée en cas de récidive <sup>(2)</sup>. Un DUERP non mis à jour reste puni jusqu'à 1 500 € (7 500 € pour une société) <sup>(3)</sup>.</p></div>
+      <div><h3>En cas d'accident</h3><p>Sans évaluation des risques, la faute inexcusable de l'employeur est plus facile à retenir. La majoration de la rente du salarié est alors récupérée auprès de l'employeur.</p></div>
+      <div><h3>En cas de litige</h3><p>L'absence de DUERP est un manquement à l'obligation de sécurité, souvent invoqué devant les prud'hommes.</p></div>
+    </div>
+    <p class="sources">(1) Dares, enquête Conditions de travail 2019, publiée en 2024. (2) Loi n° 2026-534 du 25 juin 2026, art. 48 ; Code du travail, art. L8115-1 et L8115-3. (3) Code du travail, art. R4741-1.</p>
+  </div>
+</section>
+
+<section id="methode">
+  <div class="wrap">
+    <p class="eyebrow">Comment ça marche</p>
+    <h2>Trois étapes, sans déplacement.</h2>
+    <div class="steps">
+      <div class="step"><h3>Un questionnaire adapté à votre métier</h3><p>Environ 20 minutes, quand vous voulez, depuis votre téléphone ou votre ordinateur.</p></div>
+      <div class="step"><h3>Un entretien avec vous</h3><p>20 à 30 minutes par téléphone ou en visio pour comprendre votre organisation et vos situations à risque. Le soir si vous préférez.</p></div>
+      <div class="step"><h3>Votre DUERP sur mesure sous 7 jours</h3><p>En PDF prêt à signer, avec un tableau modifiable pour les mises à jour.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="exemple" style="padding-top:0">
+  <div class="wrap two">
+    <div class="stack">
+      <p class="eyebrow">Ce que vous recevez</p>
+      <h2>Un document qui part de votre réalité.</h2>
+      <ul class="check">
+        <li>Vos unités de travail, chaque risque noté en gravité et en fréquence, et les mesures déjà en place.</li>
+        <li>Un plan d'action clair : qui fait quoi, et pour quand.</li>
+        <li>Une page d'actions classées de la gratuite à la plus coûteuse. On commence par ce qui ne coûte rien.</li>
+        <li>Les points réglementaires de votre métier que l'on oublie souvent : apprentis mineurs, femmes enceintes, pénibilité.</li>
+        <li>Un tableau modifiable pour le faire vivre, et le suivi des versions déjà prêt.</li>
+      </ul>
+    </div>
+    <div class="sample">
+      <div class="doc">
+        <b>Document unique d'évaluation des risques</b>
+        <span>Auto-école · 6 personnes · 5 unités de travail</span>
+        <span>21 risques évalués · plan d'action en 13 points</span>
+        <span class="small">9 pages + tableau Excel</span>
+      </div>
+      <p>Pour vous faire une idée, voici un DUERP complet rédigé pour une auto-école fictive.</p>
+      <a class="btn btn-main" href="exemple-DUERP-auto-ecole.pdf" target="_blank" rel="noopener">Voir l'exemple (PDF)</a>
+      <p class="small">L'entreprise, les personnes et les réponses de cet exemple sont fictives.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap two">
+    <div class="stack">
+      <p class="eyebrow">Pourquoi du sur-mesure</p>
+      <h2>C'est la pertinence qui compte, pas le nombre de pages.</h2>
+    </div>
+    <div class="stack">
+      <p>Un modèle générique liste des risques « types » qui ne correspondent souvent pas à votre réalité, et passe à côté de ce qui compte chez vous.</p>
+      <p>En cas de contrôle ou d'accident, c'est la pertinence de l'évaluation qui est regardée. Chaque DUERP que je rédige part de vos réponses et de notre échange : vos postes, vos équipements, vos horaires, les incidents déjà survenus.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap bio">
+    <div class="mono" aria-hidden="true">M</div>
+    <div class="stack">
+      <p class="eyebrow">Qui suis-je</p>
+      <h2>Maxime De Witte</h2>
+      <p>Je travaille dans l'industrie chimique, un secteur où la sécurité est encadrée au quotidien : analyse des risques avant chaque intervention, consignes, équipements de protection, retour d'expérience après chaque incident.</p>
+      <p>J'ai aussi une solide expérience du bâtiment : je connais les chantiers, les outils et les gestes du métier de l'intérieur. J'ai créé DUERP Conseil pour apporter cette double expérience aux petites entreprises, avec un discours simple et des actions concrètes.</p>
+      <div class="creds"><span>Industrie chimique</span><span>Bâtiment</span><span>Basé en Normandie</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tarifs" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Tarifs</p>
+    <h2>Une étude personnalisée, tout compris.</h2>
+    <div class="prices">
+      <div class="price"><span class="amount">249 €</span><span class="who">1 à 5 salariés</span><span class="what">Création du DUERP</span></div>
+      <div class="price"><span class="amount">299 €</span><span class="who">6 à 10 salariés</span><span class="what">Création du DUERP</span></div>
+      <div class="price"><span class="amount">399 €</span><span class="who">11 à 20 salariés</span><span class="what">Création du DUERP</span></div>
+      <div class="price update"><span class="amount">99 €</span><span class="who">Mise à jour</span><span class="what">Après un changement : nouveau poste, travaux, accident</span></div>
+    </div>
+    <div class="offer"><strong>Offre de lancement : -50 % pour les 3 premiers clients</strong>, en échange d'un témoignage écrit sur votre expérience.</div>
+    <p class="small" style="margin-top:14px">Prix nets. TVA non applicable, art. 293 B du CGI.</p>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Questions fréquentes</p>
+    <h2>Avant de vous lancer.</h2>
+    <div style="margin-top:20px">
+      <details><summary>Un DUERP fait à distance est-il valable ?</summary><p>Oui. La loi n'impose aucune visite. Ce qui compte, c'est que l'évaluation corresponde à votre entreprise. Le questionnaire et l'entretien servent justement à recueillir vos situations réelles. Vous pouvez aussi m'envoyer des photos de vos locaux.</p></details>
+      <details><summary>Qui est responsable du document ?</summary><p>L'employeur reste responsable de l'évaluation des risques. Je la rédige avec vous, à partir de vos réponses, et vous la validez avant de la signer.</p></details>
+      <details><summary>À quelle fréquence faut-il le mettre à jour ?</summary><p>À chaque changement important (nouveau poste, travaux, nouvel équipement) et après un accident. Au-delà de 11 salariés, la mise à jour est aussi obligatoire chaque année.</p></details>
+      <details><summary>Mes informations restent-elles confidentielles ?</summary><p>Oui. Vos réponses servent uniquement à rédiger votre DUERP. Elles ne sont ni revendues ni partagées.</p></details>
+      <details><summary>Comment se passe le paiement ?</summary><p>Vous recevez un devis. Une fois signé, on lance le questionnaire. La facture est envoyée à la livraison du DUERP, payable par virement.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap two">
+    <div class="stack">
+      <p class="eyebrow">Devis gratuit</p>
+      <h2>Dites-moi votre métier et votre nombre de salariés.</h2>
+      <p class="lead">Je vous réponds sous 24 h avec un devis adapté. Sans engagement. Vous avez seulement une question ? Le formulaire sert aussi à ça.</p>
+      <p class="small">Vous préférez écrire directement ?</p>
+      <a class="mail" href="mailto:contact@duerp-conseil.fr?subject=Demande%20de%20devis%20DUERP">contact@duerp-conseil.fr</a>
+      <div class="ctas"><button class="btn btn-ghost" type="button" id="copy">Copier l'adresse</button></div>
+    </div>
+    <div class="formbox">
+      <iframe data-tally-src="https://tally.so/embed/J11NXo?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" src="https://tally.so/embed/J11NXo?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="900" frameborder="0" title="Demande de devis DUERP"></iframe>
+      <p class="small">Le formulaire ne s'affiche pas ? <a href="https://tally.so/r/J11NXo" target="_blank" rel="noopener">Ouvrez-le dans un nouvel onglet</a>.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>DUERP Conseil</strong>
+    <span>Maxime De Witte EI · SIRET 132 028 333 00012 · RCS Le Havre · 7 rue du Père Arson, 76700 Rogerville · contact@duerp-conseil.fr</span>
+    <span>Directeur de la publication : Maxime De Witte. Hébergeur : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var b=this, a='contact@duerp-conseil.fr';
+  try{navigator.clipboard.writeText(a).then(function(){b.textContent='Adresse copiée'},function(){b.textContent=a})}catch(e){b.textContent=a}
+});
+</script>
+<script async src="https://tally.so/widgets/embed.js"></script>
+
+</body>
+</html>
