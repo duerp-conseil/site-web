@@ -151,7 +151,7 @@ METHODE = """<section>
     <div class="steps">
       <div class="step"><h3>Un questionnaire adapté à votre métier</h3><p>Environ 20 minutes, quand vous voulez, depuis votre téléphone ou votre ordinateur.</p></div>
       <div class="step"><h3>Un entretien avec vous</h3><p>20 à 30 minutes par téléphone ou en visio, le soir si vous préférez, pour comprendre votre organisation et vos situations à risque.</p></div>
-      <div class="step"><h3>Votre DUERP sur mesure</h3><p>En PDF prêt à signer sous 7 jours, avec un tableau modifiable pour les mises à jour.</p></div>
+      <div class="step"><h3>Votre DUERP sur mesure</h3><p>En PDF prêt à signer sous 5 jours ouvrés après notre entretien, avec un tableau modifiable pour les mises à jour.</p></div>
     </div>
   </div>
 </section>"""
