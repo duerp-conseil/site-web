@@ -2,9 +2,9 @@
 #   python3 generateur/build.py
 # Les textes peuvent contenir du HTML simple (<strong>, <em>).
 
-CHALEUR = ("Fortes chaleurs",
-  "Toiture, façade, tranchée ou camion : en été, la chaleur est un risque à part entière.",
-  "Horaires décalés, eau fraîche, pauses à l'ombre, surveillance mutuelle. Depuis le 1er juillet 2025, le DUERP doit traiter les épisodes de chaleur intense.")
+def chaleur(situation):
+  return ("Fortes chaleurs", situation,
+    "Horaires décalés, eau fraîche, pauses à l'ombre, surveillance mutuelle. Depuis le 1er juillet 2025, le DUERP doit traiter les épisodes de chaleur intense.")
 
 ROUTE = ("Trajets en véhicule",
   "Les allers-retours entre chantiers, souvent chargés et pressés, comptent parmi les premières causes d'accidents graves.",
@@ -33,7 +33,7 @@ dict(
     ("Amiante", "Dépose de plaques ou d'ardoises en fibro-ciment sur des bâtiments anciens.", "Repérage avant travaux, formation sous-section 4, mode opératoire, protections respiratoires."),
     ("Manutention", "Tuiles, ardoises, rouleaux et bacs acier montés et portés à bout de bras.", "Monte-matériaux, colisage adapté, travail à deux pour les charges longues."),
     ("Brûlures et incendie", "Chalumeau pour l'étanchéité et la soudure du zinc.", "Permis de feu, extincteur sur le toit, surveillance après travaux."),
-    CHALEUR,
+    chaleur("Sur un toit en zinc, en ardoise ou en bac acier, la température dépasse vite 50 °C en été. La chaleur est un risque à part entière."),
     ROUTE,
   ],
   regles=[HAUTEUR_REGLE, AMIANTE_REGLE,
@@ -42,6 +42,7 @@ dict(
   questions=["Quelle part de vos chantiers se fait sans échafaudage ?", "Intervenez-vous sur des bâtiments d'avant 1997 ?", "Qui monte les matériaux, et comment ?", "Vos salariés travaillent-ils parfois seuls sur un toit ?"],
   faq=[
     ("Le DUERP remplace-t-il le PPSPS sur les gros chantiers ?", "Non. Le DUERP décrit les risques de votre entreprise dans son ensemble. Le PPSPS est propre à un chantier précis, quand une coordination SPS l'exige. Un bon DUERP facilite beaucoup la rédaction des PPSPS."),
+    ("Si le DUERP parle d'amiante, ça va me coûter cher ?", "Non, le DUERP ne crée pas de nouvelle obligation : les règles amiante s'appliquent déjà, avec ou sans document. Il fait le point sur ce que vous faites déjà, et fixe un plan d'actions réaliste, étalé dans le temps. Sans DUERP, en cas de contrôle ou d'accident, c'est là que la note devient lourde."),
     ("Je fais surtout de la petite réparation, c'est utile ?", "Oui, ce sont souvent les interventions courtes qui sont les plus risquées, parce qu'on ne prend pas le temps d'installer les protections. Le DUERP prévoit une solution adaptée à ces cas."),
   ],
 ),
@@ -58,7 +59,7 @@ dict(
     ("Ciment et peau", "Le ciment frais provoque brûlures et eczémas.", "Gants adaptés, lavage des mains, crème, vêtements couvrants."),
     ("Chute de hauteur", "Échafaudages, planchers, trémies et bords de dalle.", "Échafaudages conformes et vérifiés, garde-corps, trémies protégées."),
     ("Bruit et vibrations", "Marteau-piqueur, disqueuse, bétonnière, plaque vibrante.", "Matériel récent, rotation des tâches, protections auditives."),
-    CHALEUR,
+    chaleur("Dalles, murs et façades en plein soleil, béton et mortier à manipuler vite : en été, la chaleur est un risque à part entière."),
   ],
   regles=[HAUTEUR_REGLE,
     ("Silice cristalline", "Depuis le 1er janvier 2021, les travaux exposant aux poussières de silice cristalline alvéolaire sont classés cancérogènes. Le DUERP doit en tenir compte et prévoir les mesures de réduction."),
@@ -83,7 +84,7 @@ dict(
     ("Machines à bois", "Scie, raboteuse, mortaiseuse, outils portatifs.", "Protecteurs en place, poussoirs, arrêt d'urgence, formation sur chaque machine."),
     ("Poussières de bois", "Sciage et ponçage, surtout des bois durs comme le chêne.", "Aspiration à la source, nettoyage par aspiration, masques adaptés."),
     ("Produits de traitement", "Traitements fongicides et insecticides, colles, lasures.", "Fiches de données de sécurité, gants, ventilation, stockage fermé."),
-    CHALEUR,
+    chaleur("Levage et pose de charpente sur le toit, en plein soleil et sans ombre : en été, la chaleur est un risque à part entière."),
   ],
   regles=[HAUTEUR_REGLE,
     ("Poussières de bois", "Les travaux exposant aux poussières de bois sont classés cancérogènes. L'aspiration à la source est obligatoire et l'exposition doit être réduite au plus bas possible."),
@@ -133,7 +134,7 @@ dict(
     ("Poussières de ponçage", "Enduits, plâtre, vieilles peintures.", "Ponceuses aspirantes, masques FFP2 ou FFP3, nettoyage par aspiration."),
     ("Chute de hauteur", "Escabeaux, échafaudages de façade, cages d'escalier.", "Plateformes individuelles roulantes, échafaudages conformes, garde-corps."),
     ("Postures et TMS", "Bras levés pour les plafonds, travail à genoux.", "Perches et rallonges, alternance des tâches, échafaudage roulant."),
-    CHALEUR,
+    chaleur("Ravalement de façade sur échafaudage, exposé plein sud : en été, la chaleur est un risque à part entière."),
   ],
   regles=[
     ("Agents chimiques", "L'employeur doit évaluer les risques de chaque produit à partir de sa fiche de données de sécurité et chercher d'abord à remplacer les plus dangereux (Code du travail, art. R4412-1 et suivants)."),
@@ -254,10 +255,10 @@ dict(
   risques=[
     ("Ensevelissement", "Tranchées et fouilles, terrain instable, pluie.", "Blindage ou talutage, déblais à distance du bord, pas de travail seul en fond de fouille."),
     ("Engins", "Écrasement, renversement, heurt de piéton par une pelle ou un tombereau.", "Autorisations de conduite, zone d'évolution balisée, caméra de recul, gilets haute visibilité."),
-    ("Réseaux enterrés", "Gaz, électricité, eau rencontrés pendant le terrassement.", "DT-DICT, repérage et marquage, terrassement manuel près des réseaux."),
+    ("Réseaux enterrés", "Gaz, électricité, eau rencontrés pendant le terrassement.", "DT-DICT (déclarations aux exploitants de réseaux avant de creuser), repérage et marquage, terrassement manuel près des réseaux."),
     ("Bruit et vibrations", "Engins, brise-roche, plaque vibrante.", "Engins récents, sièges suspendus, rotation, protections auditives."),
     ("Poussières", "Terrassement par temps sec, découpe d'enrobé et de bordures.", "Arrosage, découpe à l'eau, cabines filtrées."),
-    CHALEUR,
+    chaleur("Cabine d'engin, fond de fouille, enrobés chauds : en été, la chaleur est un risque à part entière."),
   ],
   regles=[
     ("Tranchées", "Les fouilles en tranchée de plus de 1,30 m de profondeur et étroites doivent être blindées ou talutées avant que quiconque n'y descende (Code du travail, art. R4534-24 et suivants)."),
