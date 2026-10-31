@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /generateur/
+
+Sitemap: https://duerp-conseil.fr/sitemap.xml
