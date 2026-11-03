@@ -80,6 +80,7 @@ def page(url, titre, desc, corps, ld):
     <a class="logo" href="/">{LOGO} DUERP Conseil</a>
     <nav>
       <a href="/metiers/">Métiers</a>
+      <a href="/exemples/">Exemples</a>
       <a href="/guides/">Guides</a>
       <a href="/#tarifs">Tarifs</a>
       <a class="btn btn-main" href="/#contact">Demander un devis</a>
@@ -103,7 +104,7 @@ def cta():
       <p class="eyebrow">Devis gratuit</p>
       <h2>Parlons de votre entreprise.</h2>
       <p class="lead">Dites-moi votre métier et votre nombre de salariés : je vous réponds sous 24 h avec un devis adapté, sans engagement.</p>
-      <div class="ctas"><a class="btn btn-main" href="{DEVIS}" target="_blank" rel="noopener">Demander un devis</a><a class="btn btn-ghost" href="/#exemple">Voir un exemple de DUERP</a></div>
+      <div class="ctas"><a class="btn btn-main" href="{DEVIS}" target="_blank" rel="noopener">Demander un devis</a><a class="btn btn-ghost" href="/exemples/">Voir des exemples de DUERP</a></div>
     </div>
     <div class="stack">
       <p class="small">Vous préférez écrire directement ?</p>
@@ -361,6 +362,39 @@ def page_hub_guides():
                      corps, jsonld(ENTREPRISE, bc_ld))
 
 
+EXEMPLES = [
+    ("Salon de coiffure", "exemple-DUERP-coiffure.pdf", "5 personnes dont une apprentie mineure", "Produits chimiques, allergies, station debout, apprentie mineure", "10 pages + tableau Excel"),
+    ("Agence immobilière", "exemple-DUERP-agence-immobiliere.pdf", "9 salariés, transaction, gestion, syndic", "Visites seul, états des lieux tendus, route, biens dégradés", "10 pages + tableau Excel"),
+    ("Couvreur", "exemple-DUERP-couvreur.pdf", "7 personnes, couverture, zinguerie, étanchéité", "Chute de hauteur, amiante, chalumeau, toitures fragiles", "12 pages + tableau Excel"),
+    ("Auto-école", "exemple-DUERP-auto-ecole.pdf", "6 personnes, 5 unités de travail", "Accident pendant la leçon, fatigue, agressivité", "9 pages + tableau Excel"),
+]
+
+
+def page_exemples():
+    url = "/exemples/"
+    bc_ld, bc = fil(("Accueil", "/"), ("Exemples de DUERP", url))
+    cartes = "".join(f"""<div class="sample">
+      <div class="doc"><b>{t}</b><span>{eff}</span><span>{risques}</span><span class="small">{pages}</span></div>
+      <a class="btn btn-main" href="/{f}" target="_blank" rel="noopener">Voir l'exemple {t.lower()} (PDF)</a>
+    </div>""" for t, f, eff, risques, pages in EXEMPLES)
+    corps = f"""<section class="hero hero-page">
+  <div class="wrap"><div class="stack">
+    {bc}
+    <p class="eyebrow">Exemples de DUERP</p>
+    <h1>Voyez exactement ce que vous recevrez.</h1>
+    <p class="lead">Quatre documents uniques complets, rédigés pour des entreprises fictives de métiers différents : évaluation des risques, plan d'action avec les coûts, annexe pénibilité et actions classées de la gratuite à la plus coûteuse.</p>
+  </div></div>
+</section>
+<section style="padding-top:0">
+  <div class="wrap"><div class="mgrid">{cartes}</div>
+  <p class="small" style="margin-top:20px">Les entreprises, les personnes et les réponses de ces exemples sont fictives. Votre DUERP est rédigé à partir de vos propres réponses et d'un échange avec vous : il décrit votre entreprise, et pas une autre.</p></div>
+</section>
+{TARIFS}"""
+    return url, page(url, "Exemples de DUERP : coiffure, agence immobilière, couvreur, auto-école | DUERP Conseil",
+                     "Consultez des exemples complets de document unique d'évaluation des risques (DUERP) pour un salon de coiffure, une agence immobilière, un couvreur et une auto-école.",
+                     corps, jsonld(ENTREPRISE, bc_ld))
+
+
 def ecrire(url, html):
     chemin = os.path.join(RACINE, url.strip("/"), "index.html")
     os.makedirs(os.path.dirname(chemin), exist_ok=True)
@@ -369,7 +403,7 @@ def ecrire(url, html):
 
 
 def main():
-    pages = [page_hub_metiers(), page_hub_guides()] + [page_metier(m) for m in METIERS] + [page_guide(g) for g in GUIDES]
+    pages = [page_hub_metiers(), page_hub_guides(), page_exemples()] + [page_metier(m) for m in METIERS] + [page_guide(g) for g in GUIDES]
     for url, html in pages:
         ecrire(url, html)
     urls = ["/"] + [u for u, _ in pages]
